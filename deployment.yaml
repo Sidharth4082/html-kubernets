@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: html-deployment
+  labels:
+    app: html 
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      name: html
+  template:
+    metadata:
+      labels:
+        app: html
+    spec:
+      containers:
+       - name: html
+         image: sid2104/html:v1
+         ports: 
+          - containerPort: 8083
